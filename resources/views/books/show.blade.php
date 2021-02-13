@@ -31,6 +31,14 @@
                         <u class="content_url">
                             <h2><a href="{{ $book->affiliate }}"><i class="fas fa-arrow-right"></i>楽天ブックスで購入する</a></h2>
                         </u>
+                        <book-like
+                        :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
+                        :initial-count-likes='@json($book->count_likes)'
+                        :authorized='@json(Auth::check())'
+                        endpoint="{{ route('books.like', ['book' => $book]) }}"
+                        >
+                            
+                        </book-like>
                         <hr class="border">
                     </div>
                 </div>

@@ -19,4 +19,25 @@ class BooksController extends Controller
             'book' => $book,
         ]);
     }
+    
+     public function like(Request $request, Book $book)
+    {
+        $book->like_users()->detach($request->user()->id);
+        $book->like_users()->attach($request->user()->id);
+
+        return [
+            'id' => $book->id,
+            'countLikes' => $book->count_likes,
+        ];
+    }
+
+    public function unlike(Request $request, Book $book)
+    {
+        $book->like_users()->detach($request->user()->id);
+
+        return [
+            'id' => $book->id,
+            'countLikes' => $book->count_likes,
+        ];
+    }
 }

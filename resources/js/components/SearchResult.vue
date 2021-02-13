@@ -89,16 +89,16 @@ export default {
 
 <style scoped>
   .card {
-    width:350px;
+    width:325px;
     margin:20px;
   }
   .card-img-top {
-    height:400px;
-    width:350px;
+    height:380px;
+    width:325px;
   }
   .card-body {
-    height:200px;
-    width:350px;
+    height:180px;
+    width:325px;
   }
   
   .title_text {

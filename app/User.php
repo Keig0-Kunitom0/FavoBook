@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function like_books()
+    {
+        return $this->belongsToMany(Book::class, 'book_like', 'user_id', 'book_id')->withTimestamps();
+    }
+    
+    public function loadRelationshipCounts()
+    {
+        $this->loadCount('like_books');
+    }
 }

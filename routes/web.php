@@ -13,5 +13,11 @@
 
 
 Auth::routes();
+
 Route::get('/', 'BooksController@books');
- Route::get('books/{id}', 'BooksController@show')->name('books.show');
+Route::get('books/{id}', 'BooksController@show')->name('books.show');
+
+Route::prefix('books')->name('books.')->group(function () {
+    Route::put('/{book}/like', 'BooksController@like')->name('like')->middleware('auth');
+    Route::delete('/{book}/like', 'BooksController@unlike')->name('unlike')->middleware('auth');
+});
