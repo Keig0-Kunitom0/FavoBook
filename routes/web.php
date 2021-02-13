@@ -11,4 +11,7 @@
 |
 */
 
+
+Auth::routes();
 Route::get('/', 'BooksController@books');
+ Route::get('books/{id}', 'BooksController@show')->name('books.show');

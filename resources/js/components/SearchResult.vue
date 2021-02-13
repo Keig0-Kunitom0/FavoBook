@@ -2,28 +2,29 @@
     <div class="container">
       <div class="row">
         <section v-if="searchText">
-          <h1 class="title_text">検索結果｢{{searchText}}｣</h1>
+          <h2 class="title_text">検索結果｢{{searchText}}｣</h2>
         </section>
-        <section v-else >
-          <h1 class="title_text">こんな本はいかがですか?</h1>
+        <section v-else>
+          <h2 class="title_text">こんな本はいかがですか?</h2>
         </section>
       </div>
       <div class="row">
         <div 
           v-for="book in books"
         　v-bind:key="book.id"
-          class="col-xl-4 col-lg-6 col-md-6 col-sm-11 book"
+          class="col-xl-4 col-lg-5 col-md-6 col-sm-10 book"
         >
-          <div class="single-new-arrival mb-50 text-center wow fadeInUp" id="image_item" data-wow-duration="1s" data-wow-delay=".1s">
+          <div class="card text-center">
             <div class="popular-img">
               <img
+                class="card-img-top"
                 v-bind:src="book.img_url"
                 alt="書籍画像"
               >
             </div>
-              <div class="popular-caption">
+              <div class="card-body popular-caption">
                 <h3>
-                  <a target="_blank" v-bind:href="'/books/'+ book.id">{{ book.title }}</a>
+                  <a class="card-title" target="_blank" v-bind:href="'/books/'+ book.id">{{ book.title }}</a>
                 </h3>
               </div>
           </div>
@@ -87,18 +88,23 @@ export default {
 </script>
 
 <style scoped>
-#image_item {
+  .card {
+    width:350px;
+    margin:20px;
+  }
+  .card-img-top {
+    height:400px;
+    width:350px;
+  }
+  .card-body {
+    height:200px;
+    width:350px;
+  }
   
-  /*枠をつける*/
-  border: 8px solid #EEEEEE;
-  
-  /*影をつける*/
-  box-shadow: 4px 4px 6px 1px #ccc;
-  
-  margin-left: 9px;
-  margin-right: 9px;
-  margin-bottom: 18px;
-}
-
-
+  .title_text {
+    margin-top:30px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 2px 3px #CCC;
+  }
 </style>

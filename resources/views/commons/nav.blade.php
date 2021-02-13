@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-success">
     
-	<a href="#" class="navbar-brand"><i class="fas fa-book-open mr-1"></i></i>FavoBook</a>	
+	<a href="/" class="navbar-brand"><i class="fas fa-book-open mr-1"></i></i>FavoBook</a>	
 	
 	<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false">
 		<span class="navbar-toggler-icon"></span>
@@ -8,12 +8,19 @@
 	
 	<div id="navbarCollapse" class="navbar-collapse justify-content-start collapse" style="">
 	    <div class="navbar-nav">
+	        @guest
             <li class="nav-item">
-                <a class="nav-link" href="">ユーザー登録</a>
+                 <a class="nav-link" href="{{ route('register') }}">ユーザー登録</a> 
             </li>
+            @endguest
+            
+            @guest
             <li class="nav-item">
-                <a class="nav-link" href="">ログイン</a>
+                <a class="nav-link" href="{{ route('login') }}">ログイン</a>
             </li>
+             @endguest
+             
+             @auth
              <!-- Dropdown -->
              <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
@@ -29,16 +36,13 @@
                     </button>
                 </div>
             </li>
-        </div>
-    	<div class="navbar-nav ml-auto">
-            <form>
-            	<div class="input-group mr-5 pr-3">								
-            		<input type="text" class="form-control" placeholder="検索...">
-            		<div class="input-group-append ">
-            			<button class="input-group-text"><i class="fas fa-search"></i></button>
-            		</div>
-            	</div>
+            <form id="logout-button" method="POST" action="{{ route('logout') }}">
+              @csrf
             </form>
-    	</div>
+             @endauth
+        </div>
+        	<div class="navbar-nav ml-auto">
+                <search-form @pass-value="search"></search-form>
+        	</div>
 	</div>
 </nav>
