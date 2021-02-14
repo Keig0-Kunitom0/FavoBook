@@ -7,7 +7,8 @@
 	</button>
 	
 	<div id="navbarCollapse" class="navbar-collapse justify-content-start collapse" style="">
-	    <div class="navbar-nav">
+	    <div class="navbar-nav ml-auto">
+	        <search-form @pass-value="search"></search-form>
 	        @guest
             <li class="nav-item">
                  <a class="nav-link" href="{{ route('register') }}">ユーザー登録</a> 
@@ -41,8 +42,5 @@
             </form>
              @endauth
         </div>
-        	<div class="navbar-nav ml-auto">
-                <search-form @pass-value="search"></search-form>
-        	</div>
 	</div>
 </nav>

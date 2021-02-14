@@ -1,5 +1,5 @@
 <template>
-    <form  @submit.prevent="submitText" >
+    <form  @submit.prevent="submitText">
     	<div class="input-group mr-5 pr-3">								
     		<input type="text" v-model="keyword" class="form-control" placeholder="検索...">
     		<div class="input-group-append ">

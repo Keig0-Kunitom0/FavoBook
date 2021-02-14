@@ -49,6 +49,7 @@ export default {
       console.log(newSearchText);
       this.reset();
       this.getBooks();
+      
     }
   },
   
