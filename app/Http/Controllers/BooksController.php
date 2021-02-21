@@ -30,7 +30,7 @@ class BooksController extends Controller
             'book' => $book,
             'reviews' => $reviews,
             'avg_score' => $avg_score,
-            'avg_percentage' => $avg_percentage
+            'avg_percentage' => $avg_percentage,
         ]);
     }
     
@@ -72,7 +72,10 @@ class BooksController extends Controller
                         ->exists();
 
                     if($exists) {
-                        back()->with('message', 'すでに投稿されています');
+
+                        $fail('すでにレビューは投稿済みです。');
+                        return;
+
                     }
 
                 }

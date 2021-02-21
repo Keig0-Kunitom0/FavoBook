@@ -101,11 +101,4 @@ export default {
     height:180px;
     width:325px;
   }
-  
-  .title_text {
-    margin-top:30px;
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    font-weight: bold;
-    text-shadow: 1px 2px 3px #CCC;
-  }
 </style>

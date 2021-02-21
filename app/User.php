@@ -47,8 +47,8 @@ class User extends Authenticatable
         $this->loadCount('like_books');
     }
     
-    // public function reviews()
-    // {
-    //     return $this->hasMany(\App\BookReviews::class,'user_id','id');
-    // }
+    public function reviews()
+    {
+        return $this->hasMany(\App\BookReview::class);
+    }
 }

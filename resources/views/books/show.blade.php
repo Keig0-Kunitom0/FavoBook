@@ -5,56 +5,63 @@
 @section('content')
 
 @include('commons.nav')
-
-    <div class="directory-details pt-padding">
-        <h2 class="title_text">書籍詳細</h2>
+        
             <div class="container">
+                <h2 class="title_text">書籍詳細</h2>
+                <hr class="border">
+                <h5>&nbsp;</h5>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-lg-5 book-img">
                         <img src="{{ $book->img_url }}" alt="書籍画像" style=''>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-lg-7">
                         <div class="small-content">
                             <h1>{{ $book->title }}</h1>
+                            <div class="average-score">
+                                <div class="star-rating">
+                                    <div class="star-rating-front" style="width:{{ $avg_percentage }}%">★★★★★</div>
+                                    <div class="star-rating-back">★★★★★</div>
+                                </div>
+                                <div class="average-score-display">
+                                    <h4>({{ $avg_score }})</h4>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr class="border">
+                        <h5>&nbsp;</h5>
+                        <div class="small-content">
+                            <h3>著者／編集 : &nbsp;{{ $book->author }}</h3>
+                        </div>
+                        <div class="small-content">
+                            <h3>出版社 : &nbsp;{{ $book->publisher }}</h3>
+                        </div>
+                        <div class="small-content">
+                            <h3>発売日 : &nbsp;{{ $book->release_date }}</h3>
                         </div>
                         <hr class="border">
-                        <div class="small-content">
-                            <h2>{{ $book->author }}</h2>
-                        </div>
-                        <div class="small-content">
-                            <h2>{{ $book->publisher }}</h2>
-                        </div>
-                        <div class="small-content">
-                            <h2>{{ $book->release_date }}</h2>
-                        </div>
-                        <hr class="border">
+                        <h5>&nbsp;</h5>
                         <u class="content_url">
-                            <h2><a href="{{ $book->affiliate }}"><i class="fas fa-arrow-right"></i>楽天ブックスで購入する</a></h2>
+                            <h5><a href="{{ $book->affiliate }}"><i class="fas fa-arrow-right"></i>楽天ブックスで購入する</a></h5>
                         </u>
-                        <div class="average-score mb-3">
-                         <div class="star-rating ml-2">
-                           <div class="star-rating-front" style="width:{{ $avg_percentage }}%">★★★★★</div>
-                           <div class="star-rating-back">★★★★★</div>
-                         </div>
-                         <div class="average-score-display">
-                            {{ $avg_score }}
-                         </div>
-                        </div>
                         <book-like
                         :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
                         :initial-count-likes='@json($book->count_likes)'
                         :authorized='@json(Auth::check())'
                         endpoint="{{ route('books.like', ['book' => $book]) }}"
                         >
-                            
                         </book-like>
-                        <hr class="border">
                     </div>
                 </div>
+                <h4>&nbsp;</h4>
+                <hr class="border">
+                
+                <h2 class="title_text">この本のレビュー</h2>
+                &nbsp;
                 @auth
                 <!-- 1.モーダル表示のためのボタン -->
-              <button class="btn btn-primary" data-toggle="modal" data-target="#modal-example">
-                  モーダルダイアログ表示
+              <button class="btn bg-success" data-toggle="modal" data-target="#modal-example" style="color:#FFF;">
+                  レビューを投稿する
               </button>
                   <!-- 2.モーダルの配置 -->
                   <div class="modal" id="modal-example" tabindex="-1">
@@ -76,6 +83,7 @@
                          @csrf
                         <input type="hidden" name="bookid" value="{{ $book->id }}">
                         <div class="modal-body">
+
                                 <div>スター</div>
                                 <div>
                                     <input type="radio" name="star" value="5" checked>
@@ -113,7 +121,7 @@
                     </div>
                   </div>
                 @endauth
+                <hr class="border">
                 @include('books.review')
             </div>
-    </div>
 @endsection

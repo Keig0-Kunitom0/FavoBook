@@ -24,6 +24,7 @@
                     </div>
                 </div>
             </li>
+            <hr class="border">
         @endforeach
         
         {{-- ページネーションのリンク --}}
