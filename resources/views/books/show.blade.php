@@ -6,15 +6,17 @@
 
 @include('commons.nav')
         
-            <div class="container">
+        <div class="container">
                 <h2 class="title_text">書籍詳細</h2>
-                <hr class="border">
+            <hr class="border">
                 <h5>&nbsp;</h5>
+                
                 <div class="row">
-                    <div class="col-lg-5 book-img">
+                    <div class="col-lg-6 book-img">
                         <img src="{{ $book->img_url }}" alt="書籍画像" style=''>
+                        <h5>&nbsp;</h5>
                     </div>
-                    <div class="col-lg-7">
+                    <div class="col-lg-6">
                         <div class="small-content">
                             <h1>{{ $book->title }}</h1>
                             <div class="average-score">
@@ -53,8 +55,7 @@
                         </book-like>
                     </div>
                 </div>
-                <h4>&nbsp;</h4>
-                <hr class="border">
+            <hr class="border">
                 
                 <h2 class="title_text">この本のレビュー</h2>
                 &nbsp;
@@ -112,8 +113,7 @@
                         </div>
                         <!-- 6.モーダルのフッタ -->
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                            <button type="submit" class="btn btn-primary">保存</button>
+                            <button type="submit" class="btn btn bg-success" style="color:#FFF;">保存</button>
                         </div>
                     </form>
                     
@@ -121,7 +121,8 @@
                     </div>
                   </div>
                 @endauth
-                <hr class="border">
+            <hr class="border">
                 @include('books.review')
             </div>
+        </div>
 @endsection

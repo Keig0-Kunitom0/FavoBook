@@ -73,7 +73,36 @@
   
   
 .book-img img{
-  width: 400px;
-  height: 480px;
+  width: 430px;
+  height: 500px;
 }
 
+.pro_img {
+    width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.proimg_size {
+    width: 100%;
+    /* border: 1px solid rgba(188, 188, 188, 0.13); */
+    border-radius: 50%;
+}
+
+.pro_name {
+    width: 190px;
+    height: 41px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.65em;
+}
+
+.pro_follow{
+  width: 210px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
