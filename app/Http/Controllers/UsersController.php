@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Book;
+use App\BookReview;
 
 class UsersController extends Controller
 {

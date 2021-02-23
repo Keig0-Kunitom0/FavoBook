@@ -12,19 +12,18 @@
                                 &nbsp;
                                 <span class="text-muted">投稿日 : {{ $review->created_at->format('Y年m月d日 H時i分') }}</span>
                             </div>
-
                             <div class="card-body pt-0 pb-2">
                                 {{-- 投稿内容 --}}
                                 <div class="card-text">
-                                <p class="mt-2">{!! nl2br(e($review->comment)) !!}</p>
-                                 @if (Auth::id() == $review->user_id)
-                                    {{-- 投稿削除ボタンのフォーム --}}
-                                    {!! Form::open(['route' => ['books.destroy', $review->id], 'method' => 'delete']) !!}
-                                        {!! Form::submit('削除', ['class' => 'btn btn-danger delete_btn']) !!}
-                                    {!! Form::close() !!}
-                                @endif
+                                    <p class="mt-2">{!! nl2br(e($review->comment)) !!}</p>
                                 </div>
                             </div>
+                            @if (Auth::id() == $review->user_id)
+                                {{-- 投稿削除ボタンのフォーム --}}
+                                {!! Form::open(['route' => ['books.destroy', $review->id], 'method' => 'delete']) !!}
+                                    {!! Form::submit('削除', ['class' => 'btn btn-danger delete_btn btn-sm']) !!}
+                                {!! Form::close() !!}
+                            @endif
                         </div>
                 </div>
             </div>

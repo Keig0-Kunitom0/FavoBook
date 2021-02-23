@@ -25,7 +25,7 @@
                                     <div class="star-rating-back">★★★★★</div>
                                 </div>
                                 <div class="average-score-display">
-                                    <h4>({{ $avg_score }})</h4>
+                                    <h4>({{ $book->review_book_count }})</h4>
                                 </div>
                             </div>
                         </div>
@@ -110,6 +110,9 @@
                             <p>コメント<br>
                             <textarea class='comments' name='comment'></textarea>
                             </p>
+                            <input type="hidden" name="bookimg" value="{{ $book->img_url }}">
+                            <input type="hidden" name="booktitle" value="{{ $book->title }}">
+                            
                         </div>
                         <!-- 6.モーダルのフッタ -->
                         <div class="modal-footer">

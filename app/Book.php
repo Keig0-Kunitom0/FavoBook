@@ -33,4 +33,9 @@ class Book extends Model
         return $this->hasMany(\App\BookReview::class);
     }
     
+     public function loadRelationshipCounts()
+    {
+        $this->loadCount('review_book');
+    }
+    
 }

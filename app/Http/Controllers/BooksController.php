@@ -18,11 +18,14 @@ class BooksController extends Controller
         
         $book = Book::findOrFail($id);
         
+        $book->loadRelationshipCounts();
+        
         $stars = $book->review_book()->avg('stars');
         
         $avg_score = round($stars,1);
         
         $avg_percentage = $avg_score*100/5;
+        
         
         $reviews = $book->review_book()->orderBy('created_at', 'desc')->paginate(25);
         
@@ -81,7 +84,9 @@ class BooksController extends Controller
                 }
             ],
             'star' => 'required|integer|min:1|max:5',
-            'comment' => 'required'
+            'comment' => 'required',
+            'bookimg' => 'required',
+            'booktitle' => 'required'
         ]);
 
         $review = new \App\BookReview();
@@ -89,6 +94,8 @@ class BooksController extends Controller
         $review->user_id = Auth::id();
         $review->stars = $request->star;
         $review->comment = $request->comment;
+        $review->title = $request->booktitle;
+        $review->img_url = $request->bookimg;
         $result = $review->save();
         
         return back();

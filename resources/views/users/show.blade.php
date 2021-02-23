@@ -26,10 +26,14 @@
 
         <ul class="nav nav-tabs nav-pills nav-justified mb-3 " id="myTab" role="tablist">
             <li class="nav-item waves-effect waves-light">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">お気に入り</a>
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                お気に入り（{{ $user->like_books_count}}）
+                </a>
             </li>
             <li class="nav-item waves-effect waves-light">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">レビュー</a>
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                レビュー （{{ $user->review_user_count}}）
+                </a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -60,7 +64,14 @@
                     @foreach ($reviews as $review)
                         <div class="card mt-5">
                             <div class="card-body d-flex flex-row">
-                            <i class="fas fa-user-circle fa-3x mr-1"></i>
+                                <div class="review-book-img">
+                                    <img src="{{ $review->img_url }}" alt="書籍画像" style=''>
+                                </div>
+                                <h5><a class="card-title" href="/books/{{ $review->book_id }}" class="title_content">{{ $review->title }}</a></h5>
+                            </div>
+                            <hr class="border">
+                            <div class="card-body d-flex flex-row">
+                                <i class="fas fa-user-circle fa-3x mr-1"></i>
                                 <div>
                                     <div class="font-weight-bold">
                                         ユーザー名
@@ -72,14 +83,14 @@
                                     <div class="card-body pt-0 pb-2">
                                         <div class="card-text">
                                             <p class="mt-2">{{ $review->comment}}</p>
-                                            @if (Auth::id() == $review->user_id)
-                                                {{-- 投稿削除ボタンのフォーム --}}
-                                                {!! Form::open(['route' => ['books.destroy', $review->id], 'method' => 'delete']) !!}
-                                                    {!! Form::submit('削除', ['class' => 'btn btn-danger delete_btn']) !!}
-                                                {!! Form::close() !!}
-                                            @endif
                                         </div>
                                     </div>
+                                    @if (Auth::id() == $review->user_id)
+                                        {{-- 投稿削除ボタンのフォーム --}}
+                                        {!! Form::open(['route' => ['books.destroy', $review->id], 'method' => 'delete']) !!}
+                                            {!! Form::submit('削除', ['class' => 'btn btn-danger delete_btn btn-sm']) !!}
+                                        {!! Form::close() !!}
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -19,6 +19,8 @@ class CreateBookReviewsTable extends Migration
             $table->unsignedBigInteger('user_id')->default(0)->comment('ユーザーID');
             $table->integer('stars')->default(0)->comment('星');
             $table->text('comment')->comment('コメント');
+            $table->string('title');
+            $table->string('img_url');
             $table->timestamps();
     
             $table->foreign('book_id')->references('id')->on('books');

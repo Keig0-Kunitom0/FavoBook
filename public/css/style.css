@@ -124,3 +124,11 @@
     color: #fff;
     background-color: #00c851;
 }
+
+.review-book-img > img{
+    width:70px;
+    height:80px;
+    margin-right:20px;
+    margin-bottom:-20px;
+}
+
