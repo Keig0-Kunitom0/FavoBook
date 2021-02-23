@@ -17,7 +17,7 @@ Auth::routes();
 Route::get('/', 'BooksController@books');
 Route::get('books/{id}', 'BooksController@show')->name('books.show');
 
-Route::resource('books','BooksController',['only' => ['store','destroy']]);
+Route::resource('books','BooksController',['only' => ['store','destroy']])->middleware('auth');
 
 Route::prefix('books')->name('books.')->group(function () {
     Route::put('/{book}/like', 'BooksController@like')->name('like')->middleware('auth');
@@ -25,7 +25,4 @@ Route::prefix('books')->name('books.')->group(function () {
  // Route::post('/review', 'BooksController@reviews')->name('reviews')->middleware('auth');
 });
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('like_books/{id}', 'UsersController@like_books')->name('users.like_books');
-    Route::resource('users','UsersController',['only' => ['show','edit','update']]);
-});
+Route::resource('users','UsersController',['only' => ['show','edit','update']])->middleware('auth');

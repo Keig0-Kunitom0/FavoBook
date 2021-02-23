@@ -28,7 +28,7 @@ class Book extends Model
         return $this->like_users->count();
     }
     
-    public function reviews()
+    public function review_book()
     {
         return $this->hasMany(\App\BookReview::class);
     }

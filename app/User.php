@@ -42,13 +42,14 @@ class User extends Authenticatable
         return $this->belongsToMany(Book::class, 'book_like', 'user_id', 'book_id')->withTimestamps();
     }
     
-    public function loadRelationshipCounts()
-    {
-        $this->loadCount('like_books');
-    }
-    
-    public function reviews()
+    public function review_user()
     {
         return $this->hasMany(\App\BookReview::class);
     }
+    
+    public function loadRelationshipCounts()
+    {
+        $this->loadCount(['like_books','review_user']);
+    }
+    
 }

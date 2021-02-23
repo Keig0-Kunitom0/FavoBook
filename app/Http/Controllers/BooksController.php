@@ -18,13 +18,13 @@ class BooksController extends Controller
         
         $book = Book::findOrFail($id);
         
-        $stars = $book->reviews()->avg('stars');
+        $stars = $book->review_book()->avg('stars');
         
         $avg_score = round($stars,1);
         
         $avg_percentage = $avg_score*100/5;
         
-        $reviews = $book->reviews()->orderBy('created_at', 'desc')->paginate(25);
+        $reviews = $book->review_book()->orderBy('created_at', 'desc')->paginate(25);
         
         return view('books.show',[
             'book' => $book,

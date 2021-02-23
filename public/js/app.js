@@ -2179,7 +2179,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.card[data-v-6cc59560] {\n  width:325px;\n  margin:20px;\n}\n.card-img-top[data-v-6cc59560] {\n  height:380px;\n  width:325px;\n}\n.card-body[data-v-6cc59560] {\n  height:180px;\n  width:325px;\n}\n.title_text[data-v-6cc59560] {\n  margin-top:30px;\n  font-family: 'M PLUS Rounded 1c', sans-serif;\n  font-weight: bold;\n  text-shadow: 1px 2px 3px #CCC;\n}\n", ""]);
+exports.push([module.i, "\n.card[data-v-6cc59560] {\n  width:325px;\n  margin:20px;\n}\n.card-img-top[data-v-6cc59560] {\n  height:380px;\n  width:325px;\n}\n.card-body[data-v-6cc59560] {\n  height:180px;\n  width:325px;\n}\n", ""]);
 
 // exports
 

@@ -17,10 +17,13 @@ class UsersController extends Controller
         
         $book_likes = $user->like_books()->orderBy('created_at','desc')->paginate(25);
         
+        $reviews = $user->review_user()->orderBy('created_at', 'desc')->paginate(25);
+        
         return view('users.show',
         [
             'user' => $user,
             'book_likes' => $book_likes,
+            'reviews' => $reviews,
         ]);
     }
     
@@ -45,22 +48,4 @@ class UsersController extends Controller
     //     return redirect('/');
     // }
     
-    public function like_books($id)
-    {
-        // idの値でユーザを検索して取得
-        $user = User::findOrFail($id);
-        
-        // 関係するモデルの件数をロード
-        $user->loadRelationshipCounts();
-
-        // ユーザの投稿一覧を作成日時の降順で取得
-        $book_likes = $user->like_books()->orderBy('created_at', 'desc')->paginate(25);
-
-        // お気に入り一覧ビューでそれを表示
-        return view('users.like_books', 
-        [
-            'user' => $user,
-            'book_likes' => $book_likes,
-        ]);
-    }
 }

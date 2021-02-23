@@ -106,3 +106,21 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.book-likes .card {
+    width:260px;
+    margin:20px;
+  }
+.book-likes .card-img-top {
+    height:315px;
+    width:260px;
+  }
+.book-likes .card-body {
+    height:115px;
+    width:260px;
+  }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #00c851;
+}
