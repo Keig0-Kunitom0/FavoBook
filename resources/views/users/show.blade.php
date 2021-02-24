@@ -11,7 +11,8 @@
             <div class="pro_img">
                 <img class="proimg_size" src="{{ Gravatar::get($user->email) }}" alt=""> 
             </div>
-        <h3 class="pro_name">ユーザーネーム</h3>
+        <h3 class="pro_nickname">{{ $user->nickname}}</h3>
+        <h5 class="pro_name">＠{{ $user->name}}</h5>
             <div class="pro_follow">
                   <a href="" class="text-muted">
                     フォロー 10 
@@ -23,6 +24,7 @@
                   </a>
             </div>
         <h4>&nbsp;</h4>
+            &nbsp;
 
         <ul class="nav nav-tabs nav-pills nav-justified mb-3 " id="myTab" role="tablist">
             <li class="nav-item waves-effect waves-light">
@@ -62,19 +64,24 @@
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 @if (count($reviews) > 0)
                     @foreach ($reviews as $review)
-                        <div class="card mt-5">
+                        <div class="card mt-4">
                             <div class="card-body d-flex flex-row">
                                 <div class="review-book-img">
-                                    <img src="{{ $review->img_url }}" alt="書籍画像" style=''>
+                                    <img src="{{ $review->book->img_url }}" alt="書籍画像" style=''>
                                 </div>
-                                <h5><a class="card-title" href="/books/{{ $review->book_id }}" class="title_content">{{ $review->title }}</a></h5>
+                                <div class="card-body popular-caption">
+                                    <h5><a class="card-title" href="/books/{{ $review->book_id }}" class="title_content">{{ $review->book->title }}</a></h5>
+                                </div>
                             </div>
                             <hr class="border">
                             <div class="card-body d-flex flex-row">
                                 <i class="fas fa-user-circle fa-3x mr-1"></i>
                                 <div>
                                     <div class="font-weight-bold">
-                                        ユーザー名
+                                        <h5 class="user-name">
+                                            {{$review->user->nickname }}
+                                            <span class="pro_name">&nbsp;＠{{$review->user->name}}</span>
+                                        </h5>
                                         <span class="star5_rating" data-rate="{{ $review->stars }}"></span>
                                         &nbsp;
                                         &nbsp;

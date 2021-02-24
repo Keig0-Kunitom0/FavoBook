@@ -44,6 +44,7 @@ export default {
       page: 1,
     };
   },
+  
   watch:{
     searchText:function (newSearchText,oldSearchText) {
       console.log(newSearchText);
@@ -101,4 +102,5 @@ export default {
     height:180px;
     width:325px;
   }
+  
 </style>

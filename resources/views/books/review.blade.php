@@ -6,7 +6,10 @@
                     <i class="fas fa-user-circle fa-3x mr-1"></i>
                         <div>
                             <div class="font-weight-bold">
-                                ユーザー名
+                                <h5 class="user-name">
+                                    {!! link_to_route('users.show', $review->user->nickname, ['user' => $review->user->id]) !!}
+                                    <span class="pro_name">&nbsp;＠{{$review->user->name}}</span>
+                                </h5>
                                 <span class="star5_rating" data-rate="{{ $review->stars }}"></span>
                                 &nbsp;
                                 &nbsp;

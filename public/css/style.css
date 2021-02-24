@@ -89,14 +89,37 @@
     border-radius: 50%;
 }
 
+.nav_img {
+    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navimg_size {
+    width: 70%;
+    /* border: 1px solid rgba(188, 188, 188, 0.13); */
+    border-radius: 50%;
+}
+
 .pro_name {
-    width: 190px;
+    width: 60px;
+    height: 41px;
+    margin-top: -10px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.0em;
+    opacity: 0.5;
+}
+
+.pro_nickname {
+    width: 160px;
     height: 41px;
     margin-top: 0;
     margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
-    font-size: 1.65em;
+    font-size: 1.45em;
 }
 
 .pro_follow{
@@ -128,7 +151,38 @@
 .review-book-img > img{
     width:70px;
     height:80px;
-    margin-right:20px;
+    margin-right:5px;
     margin-bottom:-20px;
 }
 
+.popular-caption a {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  
+h2 .fa-search{
+    box-shadow: 2px 2px 4px gray;
+    float: right;
+    margin-right: 50px;
+    transition: transform 0.05s linear;
+    color: #fff;
+    background: #08cc54;
+    height: 58px;
+    width: 58px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    text-align:center;
+    line-height: 58px;
+}
+
+h2 .fa-search:hover {
+　  -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    
+}

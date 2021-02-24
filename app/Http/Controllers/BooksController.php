@@ -10,7 +10,8 @@ use App\BookReview;
 
 class BooksController extends Controller
 {
-    public function books () {
+    public function books() {
+        
         return view('welcome');
     }
     

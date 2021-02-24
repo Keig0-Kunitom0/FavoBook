@@ -22,6 +22,11 @@ const app = new Vue({
     search(keyword){
       this.searchText = keyword;
     },
+    
+    openModal() {
+      console.log("click");
+      $('.search-model-box').fadeIn(400);
+    }
   },
 });
 
