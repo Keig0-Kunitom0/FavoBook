@@ -31,7 +31,6 @@
                         </div>
                         
                         <hr class="border">
-                        <h5>&nbsp;</h5>
                         <div class="small-content">
                             <h3>著者／編集 : &nbsp;{{ $book->author }}</h3>
                         </div>
@@ -42,10 +41,6 @@
                             <h3>発売日 : &nbsp;{{ $book->release_date }}</h3>
                         </div>
                         <hr class="border">
-                        <h5>&nbsp;</h5>
-                        <u class="content_url">
-                            <h5><a href="{{ $book->affiliate }}"><i class="fas fa-arrow-right"></i>楽天ブックスで購入する</a></h5>
-                        </u>
                         <book-like
                         :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
                         :initial-count-likes='@json($book->count_likes)'
@@ -53,6 +48,11 @@
                         endpoint="{{ route('books.like', ['book' => $book]) }}"
                         >
                         </book-like>
+                        <hr class="border">
+                        <u class="content_url">
+                            <h4><a href="{{ $book->affiliate }}"><i class="fas fa-arrow-right"></i>楽天ブックスで購入する</a></h4>
+                        </u>
+                        
                     </div>
                 </div>
             <hr class="border">

@@ -1,4 +1,4 @@
-.star5_rating{
+.star5_rating {
     position: relative;
     z-index: 0;
     display: inline-block;
@@ -7,11 +7,11 @@
     /*font-size: 30px; フォントサイズ 自由に設定化 */
 }
 
-.star5_rating:before, .star5_rating:after{
+.star5_rating:before, .star5_rating:after {
     content: '★★★★★';
 }
 
-.star5_rating:after{
+.star5_rating:after {
     position: absolute;
     z-index: 1;
     top: 0;
@@ -69,10 +69,10 @@
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-weight: bold;
     text-shadow: 1px 2px 3px #CCC;
-  }
+}
   
   
-.book-img img{
+.book-img img {
   width: 430px;
   height: 500px;
 }
@@ -81,11 +81,29 @@
     width: 120px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5px;
 }
 
 .proimg_size {
     width: 100%;
     /* border: 1px solid rgba(188, 188, 188, 0.13); */
+    border:solid;
+    border-width: 3px;
+    border-color: #993300;
+    border-radius: 50%;
+}
+
+.pro_img_short {
+    width: 60px;
+    margin-right:5px;
+}
+
+.proimg_size_short {
+    width: 90%;
+    /* border: 1px solid rgba(188, 188, 188, 0.13); */
+    border:solid;
+    border-width: 1px;
+    border-color: #993300;
     border-radius: 50%;
 }
 
@@ -105,7 +123,7 @@
     width: 60px;
     height: 41px;
     margin-top: -10px;
-    margin-bottom: 0;
+    margin-bottom: -10px;
     margin-left: auto;
     margin-right: auto;
     font-size: 1.0em;
@@ -113,18 +131,23 @@
 }
 
 .pro_nickname {
-    width: 160px;
+    width: 180px;
     height: 41px;
     margin-top: 0;
     margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
-    font-size: 1.45em;
+    font-size: 1.35em;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-.pro_follow{
-  width: 210px;
-  margin-top: 0;
+.name-center {
+    text-align: center;
+}
+
+.pro_follow {
+  width: 200px;
+  margin-top: -10;
   margin-bottom: 0;
   margin-left: auto;
   margin-right: auto;
@@ -133,22 +156,22 @@
 .book-likes .card {
     width:260px;
     margin:20px;
-  }
+}
 .book-likes .card-img-top {
     height:315px;
     width:260px;
-  }
+}
 .book-likes .card-body {
     height:115px;
     width:260px;
-  }
+}
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
     background-color: #00c851;
 }
 
-.review-book-img > img{
+.review-book-img > img {
     width:70px;
     height:80px;
     margin-right:5px;
@@ -160,7 +183,7 @@
     overflow: hidden;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-  }
+}
   
 h2 .fa-search{
     box-shadow: 2px 2px 4px gray;
@@ -168,7 +191,7 @@ h2 .fa-search{
     margin-right: 50px;
     transition: transform 0.05s linear;
     color: #fff;
-    background: #08cc54;
+    background: #993300;
     height: 58px;
     width: 58px;
     border-radius: 50%;
@@ -185,4 +208,98 @@ h2 .fa-search:hover {
     -ms-transform: scale(1.2);
     transform: scale(1.2);
     
+}
+
+.user-name a {
+    color: #000;
+}
+
+.follow-button {
+    width: 110px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.0em;
+}
+
+.unfollow-button {
+    width: 120px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.0em;
+}
+
+.unfollow-button .btn {
+    background-color: #993300;
+}
+
+.unfollow-button i {
+    color: #fff;
+}
+
+.follow-button .btn {
+    border:solid;
+    border-width: 1px;
+    border-color:	#993300;
+}
+
+.follow-button-1 {
+    width: 110px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: auto;
+    font-size: 1.0em;
+}
+
+.unfollow-button-1 {
+    width: 120px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: auto;
+    font-size: 1.0em;
+}
+
+.unfollow-button-1 .btn {
+    background-color: #993300;
+}
+
+.unfollow-button-1 i {
+    color: #fff;
+}
+
+.follow-button-1 .btn {
+    border:solid;
+    border-width: 1px;
+    border-color:	#993300;
+}
+
+.favo {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+}
+
+.average-score-display h4 {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.small-content h1 {
+     font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.book-img img {
+    margin-left: 40px;
+}
+
+text-center-log-regi a {
+    margin-top:50px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 2px 3px #CCC;
+}
+
+.card-text p {
+    color: #000;
 }

@@ -3,11 +3,13 @@
         @foreach ($reviews as $review)
             <div class="card mt-3">
                 <div class="card-body d-flex flex-row">
-                    <i class="fas fa-user-circle fa-3x mr-1"></i>
+                    <div class="pro_img_short">
+                        <img class="proimg_size_short" src="{{ Gravatar::get($review->user->email) }}" alt=""> 
+                    </div>
                         <div>
-                            <div class="font-weight-bold">
+                            <div class="font-weight-bold mt-2">
                                 <h5 class="user-name">
-                                    {!! link_to_route('users.show', $review->user->nickname, ['user' => $review->user->id]) !!}
+                                    {!! link_to_route('users.show', $review->user->nickname,['user' => $review->user->id]) !!}
                                     <span class="pro_name">&nbsp;＠{{$review->user->name}}</span>
                                 </h5>
                                 <span class="star5_rating" data-rate="{{ $review->stars }}"></span>
@@ -31,10 +33,10 @@
                 </div>
             </div>
         @endforeach
-        
-        {{-- ページネーションのリンク --}}
-        {{ $reviews->links() }}
     </ul>
+        <div class="d-flex justify-content-center pagenaition">
+            {{ $reviews->links('pagination::sample-pagination') }}
+        </div>
 @else
     <h3 class="heading">この本のレビューはありません。</h3>
 @endif

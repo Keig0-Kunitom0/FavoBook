@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -47,9 +48,61 @@ class User extends Authenticatable
         return $this->hasMany(\App\BookReview::class);
     }
     
+    public function followings()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'follow_id')->withTimestamps();
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'follow_id', 'user_id')->withTimestamps();
+    }
+    
     public function loadRelationshipCounts()
     {
-        $this->loadCount(['like_books','review_user']);
+        $this->loadCount(['like_books','review_user','followings','followers']);
+    }
+    
+    
+    //↓フォロー機能↓
+    
+    public function follow($userId)
+    {
+        $exist = $this->is_following($userId);
+        
+        $its_me = $this->id == $userId;
+        
+        if ($exist || $its_me) {
+            
+            return false;
+        } else {
+            
+            $this->followings()->attach($userId);
+            return true;
+        }
+    }
+    
+     public function unfollow($userId)
+    {
+        $exist = $this->is_following($userId);
+        
+        $its_me = $this->id == $userId;
+        
+        if ($exist || !$its_me) {
+            
+            $this->followings()->detach($userId);
+            return true;
+        } else {
+
+            return false;
+        }
+    }
+    
+    
+    
+    public function is_following($userId)
+    {
+        return $this->followings()->where('follow_id',$userId)->exists();
     }
     
 }

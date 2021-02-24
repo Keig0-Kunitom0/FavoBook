@@ -4,12 +4,12 @@
       type="button"
       class="btn m-0 p-1 shadow-none"
     >
-      <i class="fas fa-heart mr-1"
+      <i class="fas fa-heart mr-1 fa-3x"
       :class="{'red-text':this.isLikedBy,'animated heartBeat fast':this.gotToLike}" 
       @click="clickLike" 
       />
     </button>
-   {{ countLikes }} 
+   <span class="favo">({{ countLikes }})</span>
   </div>
 </template>
 
@@ -73,3 +73,12 @@ export default {
     },
   }
 </script>
+
+<style>
+.fa-heart {
+  margin-top:10px;
+}
+
+
+  
+</style>

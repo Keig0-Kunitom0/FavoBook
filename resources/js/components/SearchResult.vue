@@ -8,6 +8,7 @@
           <h2 class="title_text">こんな本はいかがですか?</h2>
         </section>
       </div>
+      <hr class="border">
       <div class="row">
         <div 
           v-for="book in books"

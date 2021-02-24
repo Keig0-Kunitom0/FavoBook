@@ -28,6 +28,42 @@ class UsersController extends Controller
         ]);
     }
     
+    public function followings($id)
+    {
+        // idの値でユーザを検索して取得
+        $user = User::findOrFail($id);
+
+        // 関係するモデルの件数をロード
+        $user->loadRelationshipCounts();
+
+        // ユーザのフォロー一覧を取得
+        $followings = $user->followings()->paginate(25);
+
+        // フォロー一覧ビューでそれらを表示
+        return view('users.followings', [
+            'user' => $user,
+            'followings' => $followings,
+        ]);
+    }
+    
+    public function followers($id)
+    {
+        // idの値でユーザを検索して取得
+        $user = User::findOrFail($id);
+
+        // 関係するモデルの件数をロード
+        $user->loadRelationshipCounts();
+
+        // ユーザのフォロワー一覧を取得
+        $followers = $user->followers()->paginate(25);
+
+        // フォロワー一覧ビューでそれらを表示
+        return view('users.followers', [
+            'user' => $user,
+            'followers' => $followers,
+        ]);
+    }
+    
     // public function edit($id)
     // {
     //     $user = User::findOrFail($id);

@@ -7,24 +7,52 @@
 @include('commons.nav')
 
     <div class="container">
+        @if(Auth::id() == $user->id)
+            <h2 class="title_text">マイページ</h2>
+        @else
         <h2 class="title_text">プロフィール</h2>
+        @endif
+        <hr class="border">
             <div class="pro_img">
                 <img class="proimg_size" src="{{ Gravatar::get($user->email) }}" alt=""> 
             </div>
-        <h3 class="pro_nickname">{{ $user->nickname}}</h3>
-        <h5 class="pro_name">＠{{ $user->name}}</h5>
-            <div class="pro_follow">
-                  <a href="" class="text-muted">
-                    フォロー 10 
-                  </a>
-                  &nbsp;
-                  &nbsp;
-                  <a href="" class="text-muted">
-                    フォロワー 10 
-                  </a>
+            <div class="name-center">
+                <h3 class="pro_nickname">{{ $user->nickname}}</h3>
+           
+                <h5 class="pro_name">＠{{ $user->name}}</h5>
+                    <div class="pro_follow">
+                          <a href="{{ route('followings',$user->id) }}" class="text-muted">
+                            フォロー&nbsp; {{ $user->followings_count }}
+                          </a>
+                          &nbsp;
+                          &nbsp;
+                          <a href="{{ route('followers',$user->id) }}" class="text-muted">
+                            フォロワー&nbsp; {{ $user->followers_count }}
+                          </a>
+                    </div>
+                    
+                @if (Auth::id() != $user->id)
+                    @if (Auth::user()->is_following($user->id))
+                    <div class="unfollow-button">
+                        {{-- アンフォローボタンのフォーム --}}
+                        {!! Form::open(['route' => ['user.unfollow', $user->id], 'method' => 'delete']) !!}
+                            {!! Form::button('<i class="fas fa-user-check"> &nbsp;フォロー中</i>', ['class' => "btn shadow-none p-2",'type' => 'submit']) !!}
+                        {!! Form::close() !!}
+                    </div>
+                    @else
+                    <div class="follow-button">
+                        {{-- フォローボタンのフォーム --}}
+                        {!! Form::open(['route' => ['user.follow', $user->id]]) !!}
+                            {!! Form::button('<i class="fas fa-user-plus"> &nbsp;フォロー</i>', ['class' => "btn shadow-none p-2",'type' => 'submit']) !!}
+                        {!! Form::close() !!}
+                     </div>
+                    @endif
+                @endif
             </div>
+            
         <h4>&nbsp;</h4>
             &nbsp;
+        <hr class="border">
 
         <ul class="nav nav-tabs nav-pills nav-justified mb-3 " id="myTab" role="tablist">
             <li class="nav-item waves-effect waves-light">
@@ -44,7 +72,7 @@
                     <div class="book-likes">
                         <div class="row">
                             @foreach ($book_likes as $book_like)
-                                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-10 book">
+                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-11 book">
                                     <div class="card text-center">
                                         <div class="like_books_img">
                                             <img class="card-img-top" src="{{ $book_like->img_url }}" alt="書籍画像">
@@ -55,9 +83,11 @@
                                     </div>
                                 </div>
                             @endforeach
-                            {{-- ページネーションのリンク --}}
-                            {{ $book_likes->links() }}
                         </div>
+                    </div>
+                    <hr class="border">
+                　　<div class="d-flex justify-content-center pagenaition">
+                        {{ $book_likes->links('pagination::sample-pagination') }}
                     </div>
                 @endif
             </div>
@@ -75,9 +105,11 @@
                             </div>
                             <hr class="border">
                             <div class="card-body d-flex flex-row">
-                                <i class="fas fa-user-circle fa-3x mr-1"></i>
+                                <div class="pro_img_short">
+                                    <img class="proimg_size_short" src="{{ Gravatar::get($review->user->email) }}" alt=""> 
+                                </div>
                                 <div>
-                                    <div class="font-weight-bold">
+                                    <div class="font-weight-bold mt-2">
                                         <h5 class="user-name">
                                             {{$review->user->nickname }}
                                             <span class="pro_name">&nbsp;＠{{$review->user->name}}</span>
@@ -102,11 +134,13 @@
                             </div>
                         </div>
                      @endforeach
-                {{-- ページネーションのリンク --}}
-                {{ $reviews->links() }}
+                     <hr class="border">
+                <div class="d-flex justify-content-center pagenaition">
+                    {{ $reviews->links('pagination::sample-pagination') }}
+                </div>
                 @endif
             </div>
         </div>
     </div>
-    
+    <h1> &nbsp;</h1>
 @endsection

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-success">
     
-	<a href="/" class="navbar-brand"><i class="fas fa-book-open mr-1"></i></i>FavoBook</a>	
+	<a href="/" class="navbar-brand"><i class="fas fa-book-open mr-1"></i>FavoBook</a>	
 	
 	<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false">
 		<span class="navbar-toggler-icon"></span>

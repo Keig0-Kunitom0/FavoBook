@@ -25,4 +25,13 @@ Route::prefix('books')->name('books.')->group(function () {
  // Route::post('/review', 'BooksController@reviews')->name('reviews')->middleware('auth');
 });
 
-Route::resource('users','UsersController',['only' => ['show','edit','update']])->middleware('auth');
+Route::group(['middleware' => ['auth']], function () {
+    Route::group(['prefix' => 'users/{id}'], function () {
+        Route::post('follow', 'UserFollowController@store')->name('user.follow');
+        Route::delete('unfollow', 'UserFollowController@destroy')->name('user.unfollow');
+        Route::get('followings', 'UsersController@followings')->name('followings');
+        Route::get('followers', 'UsersController@followers')->name('followers');
+    });
+    
+    Route::resource('users','UsersController',['only' => ['show','edit','update']]);
+});

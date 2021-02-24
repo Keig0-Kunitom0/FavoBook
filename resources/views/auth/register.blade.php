@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
-        <h1 class="text-center"><a class="text-dark" href="/">FavoBook</a></h1>
+        <h1 class="text-center-log-regi"><a class="text-dark" href="/"><i class="fas fa-book-open mr-1"></i>FavoBook</a></h1>
             <div class="card mt-3">
                 <div class="card-body text-center">
                 <h2 class="h3 card-title text-center mt-2">ユーザー登録</h2>
@@ -20,7 +20,7 @@
                             <div class="md-form">
                                 <label for="name">ユーザーID</label>
                                 <input class="form-control" type="text" id="name" name="name" required value="{{ old('name') }}">
-                                <small>英数字3〜16文字(登録後の変更はできません)</small>
+                                <small>英数字3〜8文字(登録後の変更はできません)</small>
                             </div>
                             <div class="md-form">
                                 <label for="nickname">ニックネーム</label>
