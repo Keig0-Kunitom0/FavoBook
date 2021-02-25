@@ -56,75 +56,74 @@
                     </div>
                 </div>
             <hr class="border">
-                
                 <h2 class="title_text">この本のレビュー</h2>
-                &nbsp;
                 @auth
-                <!-- 1.モーダル表示のためのボタン -->
-              <button class="btn bg-success" data-toggle="modal" data-target="#modal-example" style="color:#FFF;">
-                  レビューを投稿する
-              </button>
+                <div class="review-btn">
+                    <button class="btn" data-toggle="modal" data-target="#modal-example" style="color:#FFF;">
+                      レビューを投稿する
+                   </button>
+               </div>
+                <div class="error-preview">
+                    @include('error_card_list')
+                </div>
                   <!-- 2.モーダルの配置 -->
-                  <div class="modal" id="modal-example" tabindex="-1">
-                    <div class="modal-dialog">
-                 
-                    <!-- 3.モーダルのコンテンツ -->
-                    <div class="modal-content">
- 
-                        <!-- 4.モーダルのヘッダ -->
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="modal-label">レビューの投稿</h4>
-                            <button type="button" class="close" data-dismiss="modal">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
- 
-                        <!-- 5.モーダルのボディ -->
-                    <form  method="POST" action="{{ route('books.store') }}">
-                         @csrf
-                        <input type="hidden" name="bookid" value="{{ $book->id }}">
-                        <div class="modal-body">
-
-                                <div>スター</div>
-                                <div>
-                                    <input type="radio" name="star" value="5" checked>
-                                    <span class="star5_rating" data-rate="5"></span>
+            <div class="modal" id="modal-example" tabindex="-1">
+                  <div class="modal-dialog">
+                        <!-- 3.モーダルのコンテンツ -->
+                        <div class="modal-content">
+                            <!-- 4.モーダルのヘッダ -->
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-label">レビューの投稿</h4>
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                                <!-- 5.モーダルのボディ -->
+                            <form  method="POST" action="{{ route('books.store') }}">
+                                 @csrf
+                                <input type="hidden" name="bookid" value="{{ $book->id }}">
+                                <div class="modal-body">
+        
+                                    <div class="modal-star">スター</div>
+                                        <h5>
+                                            <div>
+                                                <input type="radio" name="star" value="5" checked>
+                                                <span class="star5_rating" data-rate="5"></span>
+                                            </div>
+                                            <div>
+                                                <input type="radio"  name="star" value="4">
+                                                <span class="star5_rating" data-rate="4"></span>
+                                            </div>
+                                            <div>
+                                                <input type="radio"  name="star" value="3">
+                                                <span class="star5_rating" data-rate="3"></span>
+                                            </div>
+                                            <div>
+                                                <input type="radio" name="star" value="2">
+                                                <span class="star5_rating" data-rate="2"></span>
+                                            </div>
+                                            <div>
+                                                <input type="radio" name="star" value="1">
+                                                <span class="star5_rating" data-rate="1"></span>
+                                            </div>
+                                        </h5>
+                                    <p>コメント<br>
+                                    <textarea class='modal-comments' name='comment'></textarea>
+                                    </p>
+                                    <input type="hidden" name="bookimg" value="{{ $book->img_url }}">
+                                    <input type="hidden" name="booktitle" value="{{ $book->title }}">
+                                    
                                 </div>
-                                <div>
-                                    <input type="radio"  name="star" value="4">
-                                    <span class="star5_rating" data-rate="4"></span>
+                                <!-- 6.モーダルのフッタ -->
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn bg-success" style="color:#FFF;">保存</button>
                                 </div>
-                                <div>
-                                    <input type="radio"  name="star" value="3">
-                                    <span class="star5_rating" data-rate="3"></span>
-                                </div>
-                                <div>
-                                    <input type="radio" name="star" value="2">
-                                    <span class="star5_rating" data-rate="2"></span>
-                                </div>
-                                <div>
-                                    <input type="radio" name="star" value="1">
-                                    <span class="star5_rating" data-rate="1"></span>
-                                </div>
-                            &nbsp;
-                            <p>コメント<br>
-                            <textarea class='comments' name='comment'></textarea>
-                            </p>
-                            <input type="hidden" name="bookimg" value="{{ $book->img_url }}">
-                            <input type="hidden" name="booktitle" value="{{ $book->title }}">
-                            
-                        </div>
-                        <!-- 6.モーダルのフッタ -->
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn bg-success" style="color:#FFF;">保存</button>
-                        </div>
-                    </form>
-                    
-                    </div>
-                    </div>
+                            </form>
+                            </div>
+                      </div>
                   </div>
                 @endauth
-            <hr class="border">
+
                 @include('books.review')
             </div>
         </div>

@@ -70,6 +70,11 @@
     font-weight: bold;
     text-shadow: 1px 2px 3px #CCC;
 }
+
+.star5_rating {
+    margin-top: 7px;
+    margin-bottom: 10px;
+}
   
   
 .book-img img {
@@ -139,6 +144,7 @@
     margin-right: auto;
     font-size: 1.35em;
     font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
 }
 
 .name-center {
@@ -169,6 +175,8 @@
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
     background-color: #00c851;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
 }
 
 .review-book-img > img {
@@ -221,6 +229,7 @@ h2 .fa-search:hover {
     margin-left: auto;
     margin-right: auto;
     font-size: 1.0em;
+    text-align: center;
 }
 
 .unfollow-button {
@@ -230,10 +239,12 @@ h2 .fa-search:hover {
     margin-left: auto;
     margin-right: auto;
     font-size: 1.0em;
+    text-align: center;
 }
 
 .unfollow-button .btn {
     background-color: #993300;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .unfollow-button i {
@@ -244,6 +255,8 @@ h2 .fa-search:hover {
     border:solid;
     border-width: 1px;
     border-color:	#993300;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+
 }
 
 .follow-button-1 {
@@ -264,6 +277,7 @@ h2 .fa-search:hover {
 
 .unfollow-button-1 .btn {
     background-color: #993300;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .unfollow-button-1 i {
@@ -273,7 +287,8 @@ h2 .fa-search:hover {
 .follow-button-1 .btn {
     border:solid;
     border-width: 1px;
-    border-color:	#993300;
+    border-color:#993300;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .favo {
@@ -283,18 +298,29 @@ h2 .fa-search:hover {
 
 .average-score-display h4 {
     font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
 }
 
 .small-content h1 {
      font-family: 'M PLUS Rounded 1c', sans-serif;
+     margin-bottom: 30px;
 }
 
 .book-img img {
     margin-left: 40px;
 }
 
-text-center-log-regi a {
-    margin-top:50px;
+.log-regi-btn {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+}
+
+.log-regi-title {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+}
+
+.text-center .text-title{
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-weight: bold;
     text-shadow: 1px 2px 3px #CCC;
@@ -302,4 +328,51 @@ text-center-log-regi a {
 
 .card-text p {
     color: #000;
+}
+
+.review-btn {
+    margin-top:5px;
+    text-align: center;
+}
+
+.review-btn .btn {
+    background-color: #993300;
+    width: 30%;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+}
+
+.modal-comments {
+    width: 450px;
+    height: 150px;
+}
+
+.modal-title {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+}
+
+.modal-star {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+}
+
+.modal-body p {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+}
+
+.modal-footer button {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+}
+
+.delete_btn {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+}
+
+.error-preview {
+    margin-top: 20px;
+    margin-bottom: 25px;
 }

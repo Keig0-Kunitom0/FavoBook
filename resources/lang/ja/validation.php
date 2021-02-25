@@ -150,6 +150,7 @@ return [
         'nickname' => 'ニックネーム',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
+        'comment' => 'コメント',
     ],
 
 ];
