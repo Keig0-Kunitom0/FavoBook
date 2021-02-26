@@ -22,6 +22,7 @@
                                 <a href="{{ route('users.show', ['user' => $user->id]) }}" class="text-dark">
                                     {{ $user->nickname }}
                                 </a>
+                                <span class="pro_name">&nbsp;＠{{$user->name}}</span>
                             </h2>
                             @if (Auth::id() != $user->id)
                                 @if (Auth::user()->is_following($user->id))

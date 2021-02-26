@@ -58,7 +58,9 @@ class SearchController extends Controller
             //$book->category = $item->Item->category;
             //$book->category = "dummy"; // FIXME：categoryがnullableでないのでエラーになったのでダミーデータ投入。
             $book->release_date= $item->Item->salesDate; 
+
             $book->save();
+            
             
             $books[] = $book->toArray();
         }

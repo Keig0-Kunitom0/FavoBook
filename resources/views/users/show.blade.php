@@ -12,10 +12,10 @@
         @else
         <h2 class="title_text">プロフィール</h2>
         @endif
-        <hr class="border">
-            <div class="pro_img">
-                <img class="proimg_size" src="{{ Gravatar::get($user->email) }}" alt=""> 
-            </div>
+            <hr class="border">
+                <div class="pro_img">
+                    <img class="proimg_size" src="{{ Gravatar::get($user->email) }}" alt=""> 
+                </div>
             <div class="name-center">
                 <h3 class="pro_nickname">{{ $user->nickname}}</h3>
            
@@ -30,7 +30,15 @@
                             フォロワー&nbsp; {{ $user->followers_count }}
                           </a>
                     </div>
-                    
+                <div class="pro_profile">
+                    <span>自己紹介</span>
+                </div>
+                <div class="pro_self-introduction">
+                    <p class="mb-0">{!! nl2br(e( $user->self_introduction )) !!}</p>
+                </div>
+                &nbsp;
+            　　&nbsp;
+                
                 @if (Auth::id() != $user->id)
                     @if (Auth::user()->is_following($user->id))
                     <div class="unfollow-button">
@@ -47,6 +55,14 @@
                         {!! Form::close() !!}
                      </div>
                     @endif
+                @else
+                    <div class="edit-button">
+                        {{-- 編集ボタンのフォーム --}}
+                        <a  href="{{ route('users.edit', ['user' => Auth::user()->id]) }}" class="btn shadow-none p-2">
+                            &nbsp;<i class="fas fa-pen mr-2">&nbsp;プロフィール編集</i>
+                        </a>
+                    </div>
+                     
                 @endif
             </div>
             
@@ -83,6 +99,8 @@
                                     </div>
                                 </div>
                             @endforeach
+                            
+                            
                         </div>
                     </div>
                     <hr class="border">
@@ -91,6 +109,7 @@
                     </div>
                 @endif
             </div>
+            
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 @if (count($reviews) > 0)
                     @foreach ($reviews as $review)
@@ -121,7 +140,7 @@
                                     </div>
                                     <div class="card-body pt-0 pb-2">
                                         <div class="card-text">
-                                            <p class="mt-2">{{ $review->comment}}</p>
+                                            <p class="mt-1">{{ $review->comment}}</p>
                                         </div>
                                     </div>
                                     @if (Auth::id() == $review->user_id)

@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\Mail\BareMail;
+use App\Notifications\PasswordResetNotification;
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','nickname', 'email', 'password',
+        'name','nickname', 'email', 'password','self_introduction',
     ];
 
     /**
@@ -98,11 +101,16 @@ class User extends Authenticatable
         }
     }
     
-    
-    
     public function is_following($userId)
     {
         return $this->followings()->where('follow_id',$userId)->exists();
     }
+    
+    
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PasswordResetNotification($token, new BareMail()));
+    }
+
     
 }

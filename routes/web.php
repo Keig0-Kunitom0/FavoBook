@@ -33,5 +33,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('followers', 'UsersController@followers')->name('followers');
     });
     
+    Route::group(['prefix' => 'users/{user}'], function () {
+        Route::get('/edit_password', 'UsersController@edit_password')->name('users.edit_password');
+        Route::put('/update_password', 'UsersController@update_password')->name('users.update_password');
+    });
+    
     Route::resource('users','UsersController',['only' => ['show','edit','update']]);
 });

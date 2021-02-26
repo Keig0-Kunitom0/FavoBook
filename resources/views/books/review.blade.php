@@ -38,5 +38,5 @@
             {{ $reviews->links('pagination::sample-pagination') }}
         </div>
 @else
-    <h5 class="heading">この本のレビューはありません。</h3>
+    <h5 class="heading">レビューはありません。</h3>
 @endif

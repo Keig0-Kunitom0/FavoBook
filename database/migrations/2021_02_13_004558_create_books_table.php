@@ -22,6 +22,7 @@ class CreateBooksTable extends Migration
             $table->string('img_url');
             $table->string('release_date');
             $table->timestamps();
+            
         });
     }
 

@@ -28,7 +28,7 @@ class BooksController extends Controller
         $avg_percentage = $avg_score*100/5;
         
         
-        $reviews = $book->review_book()->orderBy('created_at', 'desc')->paginate(25);
+        $reviews = $book->review_book()->orderBy('created_at', 'desc')->paginate(50);
         
         return view('books.show',[
             'book' => $book,

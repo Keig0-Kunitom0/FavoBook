@@ -82,11 +82,22 @@
   height: 500px;
 }
 
+.word {
+  display: none;
+  font-size: 12px;
+  position: absolute;
+  right: 48px;
+  bottom: 3px;
+  z-index: 2;
+}
+
 .pro_img {
     width: 120px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5px;
+    position: relative;
+    z-index: 1;
 }
 
 .proimg_size {
@@ -158,6 +169,29 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.pro_profile {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+     
+}
+
+.pro_profile span {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+}
+
+.pro_self-introduction {
+    width: 450px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
 
 .book-likes .card {
     width:260px;
@@ -372,7 +406,36 @@ h2 .fa-search:hover {
     font-weight: bold;
 }
 
+.update_btn {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+}
+
 .error-preview {
     margin-top: 20px;
     margin-bottom: 25px;
+}
+
+.pro_img:hover .word {
+  display: inline;
+}
+
+
+.edit-button {
+    width: 170px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.0em;
+    text-align: center;
+}
+
+.edit-button .btn {
+    background-color: #993300;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.edit-button i {
+    color: #fff;
 }
