@@ -1,6 +1,6 @@
 # FavoBook
 
--　書籍のお気に入り登録と評価（レビュー）ができるアプリです。
+##書籍のお気に入り登録と評価（レビュー）ができるアプリです。
 -　herokuURL→https://favo-book.herokuapp.com/
 
 # アプリ概要
