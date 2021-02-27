@@ -13,16 +13,16 @@
 
 
 # 使用技術
-##・フロントエンド 
+- フロントエンド 
 - Vue.js 2.6.11
 - HTML/CSS/NDBootstrap
 - 
-##・バックエンド
+- バックエンド
 - PHP 7.3.18
 - Laravel 6.20.16
 - 楽天booksAPI <https://webservice.rakuten.co.jp/api/booksbooksearch/>
 
-##・インフラ
+- インフラ
 - Heroku
 
 
