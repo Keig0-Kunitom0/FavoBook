@@ -13,6 +13,7 @@
 
 
 # 使用技術
+
 #### フロントエンド 
 - Vue.js 2.6.11
 - HTML/CSS/NDBootstrap
