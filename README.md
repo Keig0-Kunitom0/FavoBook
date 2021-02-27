@@ -13,9 +13,7 @@
 
 ## 使用画面のイメージ
 
-<img width="1434" alt="スクリーンショット 2021-02-27 0 03 47" src="https://user-images.githubusercontent.com/67290662/109368638-1cba2980-78dd-11eb-8d6b-23d3e10208b7.png">
-
-<img width="1435" alt="スクリーンショット 2021-02-27 0 04 18" src="https://user-images.githubusercontent.com/67290662/109368672-38253480-78dd-11eb-915b-ccd77f659526.png">
+<img width="1434" alt="スクリーンショット 2021-02-27 0 03 47" src="https://user-images.githubusercontent.com/67290662/109368638-1cba2980-78dd-11eb-8d6b-23d3e10208b7.png"><img width="1435" alt="スクリーンショット 2021-02-27 0 04 18" src="https://user-images.githubusercontent.com/67290662/109368672-38253480-78dd-11eb-915b-ccd77f659526.png">
 
 <img width="1440" alt="スクリーンショット 2021-02-27 0 04 37" src="https://user-images.githubusercontent.com/67290662/109368712-58ed8a00-78dd-11eb-81be-97c5a9751f1e.png">
 
