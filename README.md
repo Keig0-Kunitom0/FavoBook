@@ -1,7 +1,7 @@
 # FavoBook
 
-### 書籍のお気に入り登録と評価（レビュー）ができるアプリです。
-### herokuURL→https://favo-book.herokuapp.com/
+#### 書籍のお気に入り登録と評価（レビュー）ができるアプリです。
+#### herokuURL→https://favo-book.herokuapp.com/
 
 # アプリ概要
 - 私自身本が好きで、本の検索やコメント、評価ができ、また他人のレビューも見れてそのユーザーをフォローして繋がれるようなサイトがあれば良いなと思い作成しました。
@@ -13,16 +13,16 @@
 
 
 # 使用技術
-- フロントエンド 
+#### ・ フロントエンド 
 - Vue.js 2.6.11
 - HTML/CSS/NDBootstrap
 - 
-- バックエンド
+#### ・ バックエンド
 - PHP 7.3.18
 - Laravel 6.20.16
 - 楽天booksAPI <https://webservice.rakuten.co.jp/api/booksbooksearch/>
 
-- インフラ
+#### ・ インフラ
 - Heroku
 
 
