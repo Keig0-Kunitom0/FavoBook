@@ -76,7 +76,7 @@
 
 #### フロントエンド 
 - Vue.js 2.6.11
-- HTML/CSS/NDBootstrap
+- HTML/CSS/MDBootstrap
 - 
 #### バックエンド
 - PHP 7.3.18
